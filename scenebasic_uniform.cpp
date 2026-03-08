@@ -13,7 +13,7 @@ using glm::mat3;
 
 SceneBasic_Uniform::SceneBasic_Uniform() :
     torus(0.7f, 0.3f, 50, 50),
-    plane(10.0f, 10.0f, 1, 1),
+    plane(30.0f, 15.0f, 1, 1),
     sky(100.0f),
     angle(0.0f),
     tPrev(0.0f),
@@ -35,10 +35,13 @@ void SceneBasic_Uniform::initScene()
 
     // Light uniforms
     prog.use();
-    prog.setUniform("Light.Position", vec4(5.0f, 5.0f, 2.0f, 1.0f));
-    prog.setUniform("Light.La", vec3(0.2f, 0.2f, 0.2f));
+    prog.setUniform("Light.Position", vec4(0.0f, 10.0f, 0.0f, 1.0f));
+    prog.setUniform("Light.La", vec3(1.0f, 1.0f, 1.0f));
     prog.setUniform("Light.Ld", vec3(1.0f, 1.0f, 1.0f));
     prog.setUniform("Light.Ls", vec3(1.0f, 1.0f, 1.0f));
+    prog.setUniform("Light.Direction", vec3(0.0f, -1.0f, 0.0f));
+    prog.setUniform("Light.Cutoff", cos(glm::radians(45.0f)));
+    prog.setUniform("Light.Exponent", 50.0f);
 }
 
 void SceneBasic_Uniform::compile()
@@ -96,7 +99,8 @@ void SceneBasic_Uniform::render()
     prog.use();
 
     // Update light position to view space
-    prog.setUniform("Light.Position", view * vec4(5.0f, 5.0f, 2.0f, 1.0f));
+    prog.setUniform("Light.Position", view * vec4(0.0f, 10.0f, 0.0f, 1.0f));
+    prog.setUniform("Light.Direction", mat3(view) * vec3(0.0f, -1.0f, 0.0f));
 
     // Draw torus
     prog.setUniform("Material.Ka", vec3(0.1f, 0.1f, 0.1f));
