@@ -117,7 +117,7 @@ void SceneBasic_Uniform::render()
 
     model = mat4(1.0f);
     setMatrices();
-    plane.render();
+    plane.render(); 
 }
 
 void SceneBasic_Uniform::resize(int w, int h)
