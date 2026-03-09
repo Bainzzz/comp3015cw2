@@ -22,6 +22,12 @@ uniform struct MaterialInfo {
     float Shininess;
 } Material;
 
+uniform struct FogInfo {
+    float MaxDist;
+    float MinDist;
+    vec3 Color;
+} Fog;
+
 vec3 blinnPhongSpot(vec3 pos, vec3 norm)
 {
     vec3 ambient = Light.La * Material.Ka;
@@ -52,5 +58,13 @@ vec3 blinnPhongSpot(vec3 pos, vec3 norm)
 
 void main()
 {
-    FragColor = vec4(blinnPhongSpot(FragPos, normalize(Normal)), 1.0);
+    // Calculate fog factor based on distance from camera
+    float dist = abs(FragPos.z);
+    float fogFactor = clamp((Fog.MaxDist - dist) / (Fog.MaxDist - Fog.MinDist), 0.0, 1.0);
+
+    vec3 shadeColor = blinnPhongSpot(FragPos, normalize(Normal));
+    
+    // Mix scene color with fog color
+    vec3 color = mix(Fog.Color, shadeColor, fogFactor);
+    FragColor = vec4(color, 1.0);  //fog doesnt come out how im wanting try again later 
 }

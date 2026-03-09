@@ -12,7 +12,6 @@ using glm::mat3;
 #include "helper/texture.h"
 
 SceneBasic_Uniform::SceneBasic_Uniform() :
-    torus(0.7f, 0.3f, 50, 50),
     plane(30.0f, 15.0f, 1, 1),
     sky(100.0f),
     angle(0.0f),
@@ -24,6 +23,9 @@ SceneBasic_Uniform::SceneBasic_Uniform() :
 void SceneBasic_Uniform::initScene()
 {
     compile();
+
+    ball = ObjMesh::load("media/Soccer_Ball.obj", true, true);
+
     glEnable(GL_DEPTH_TEST);
 
     projection = mat4(1.0f);
@@ -42,6 +44,11 @@ void SceneBasic_Uniform::initScene()
     prog.setUniform("Light.Direction", vec3(0.0f, -1.0f, 0.0f));
     prog.setUniform("Light.Cutoff", cos(glm::radians(45.0f)));
     prog.setUniform("Light.Exponent", 50.0f);
+
+    //fog
+    prog.setUniform("Fog.MaxDist", 15.0f);
+    prog.setUniform("Fog.MinDist", 1.0f);
+    prog.setUniform("Fog.Color", vec3(0.5f, 0.6f, 0.5f));
 }
 
 void SceneBasic_Uniform::compile()
@@ -102,7 +109,7 @@ void SceneBasic_Uniform::render()
     prog.setUniform("Light.Position", view * vec4(0.0f, 10.0f, 0.0f, 1.0f));
     prog.setUniform("Light.Direction", mat3(view) * vec3(0.0f, -1.0f, 0.0f));
 
-    // Draw torus
+    // Draw ball
     prog.setUniform("Material.Ka", vec3(0.1f, 0.1f, 0.1f));
     prog.setUniform("Material.Kd", vec3(0.4f, 0.6f, 0.9f));
     prog.setUniform("Material.Ks", vec3(1.0f, 1.0f, 1.0f));
@@ -110,8 +117,9 @@ void SceneBasic_Uniform::render()
 
     model = mat4(1.0f);
     model = glm::translate(model, vec3(0.0f, 0.5f, 0.0f));
+    model = glm::scale(model, vec3(5.0f, 5.0f, 5.0f));
     setMatrices();
-    torus.render();
+    ball->render();
 
     // Draw plane
     prog.setUniform("Material.Ka", vec3(0.1f, 0.2f, 0.1f));

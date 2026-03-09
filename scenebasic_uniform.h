@@ -6,14 +6,15 @@
 #include "helper/glslprogram.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "helper/torus.h"
+#include "helper/objmesh.h"
 #include "helper/plane.h"
 #include "helper/skybox.h"
+#include <memory>
 
 class SceneBasic_Uniform : public Scene
 {
 private:
-    Torus torus;
+    std::unique_ptr<ObjMesh> ball;
     Plane plane;
     SkyBox sky;
     GLSLProgram prog;
@@ -34,8 +35,9 @@ public:
     void update(float t);
     void render();
     void resize(int, int);
-    void increaseRotSpeed() { rotSpeed += 0.005f; }  //how much speed camera increases by
-    void decreaseRotSpeed() { rotSpeed = glm::max(0.0f, rotSpeed - 0.005f); }
+
+    void increaseRotSpeed() { rotSpeed += 0.01f; }
+    void decreaseRotSpeed() { rotSpeed = glm::max(0.0f, rotSpeed - 0.01f); }
 };
 
-#endif 
+#endif // SCENEBASIC_UNIFORM_H
