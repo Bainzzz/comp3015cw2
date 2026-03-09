@@ -19,6 +19,7 @@ private:
     SkyBox sky;
     GLSLProgram prog;
     GLSLProgram skyProg;
+    GLuint ballTex;
 
     glm::mat4 model, view, projection;
 

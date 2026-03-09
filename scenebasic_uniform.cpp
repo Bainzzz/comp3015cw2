@@ -11,6 +11,7 @@ using glm::mat3;
 #include "helper/glutils.h"
 #include "helper/texture.h"
 
+
 SceneBasic_Uniform::SceneBasic_Uniform() :
     plane(30.0f, 15.0f, 1, 1),
     sky(100.0f),
@@ -26,6 +27,8 @@ void SceneBasic_Uniform::initScene()
 
     ball = ObjMesh::load("media/Soccer_Ball.obj", true, true);
 
+    ballTex = Texture::loadTexture("media/texture/ball.jpg");
+
     glEnable(GL_DEPTH_TEST);
 
     projection = mat4(1.0f);
@@ -37,17 +40,17 @@ void SceneBasic_Uniform::initScene()
 
     // Light uniforms
     prog.use();
-    prog.setUniform("Light.Position", vec4(0.0f, 10.0f, 0.0f, 1.0f));
-    prog.setUniform("Light.La", vec3(1.0f, 1.0f, 1.0f));
+    prog.setUniform("Light.Position", vec4(0.0f, 15.0f, 0.0f, 1.0f));
+    prog.setUniform("Light.La", vec3(0.4f, 0.4f, 0.4f));
     prog.setUniform("Light.Ld", vec3(1.0f, 1.0f, 1.0f));
     prog.setUniform("Light.Ls", vec3(1.0f, 1.0f, 1.0f));
     prog.setUniform("Light.Direction", vec3(0.0f, -1.0f, 0.0f));
-    prog.setUniform("Light.Cutoff", cos(glm::radians(45.0f)));
-    prog.setUniform("Light.Exponent", 50.0f);
+    prog.setUniform("Light.Cutoff", cos(glm::radians(12.0f)));
+    prog.setUniform("Light.Exponent", 8.0f);
 
     //fog
-    prog.setUniform("Fog.MaxDist", 15.0f);
-    prog.setUniform("Fog.MinDist", 1.0f);
+    prog.setUniform("Fog.MaxDist", 25.0f);
+    prog.setUniform("Fog.MinDist", 5.0f);
     prog.setUniform("Fog.Color", vec3(0.5f, 0.6f, 0.5f));
 }
 
@@ -106,10 +109,13 @@ void SceneBasic_Uniform::render()
     prog.use();
 
     // Update light position to view space
-    prog.setUniform("Light.Position", view * vec4(0.0f, 10.0f, 0.0f, 1.0f));
+    prog.setUniform("Light.Position", view * vec4(0.0f, 15.0f, 0.0f, 1.0f));
     prog.setUniform("Light.Direction", mat3(view) * vec3(0.0f, -1.0f, 0.0f));
 
     // Draw ball
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, ballTex);
+    prog.setUniform("HasTexture", true);
     prog.setUniform("Material.Ka", vec3(0.1f, 0.1f, 0.1f));
     prog.setUniform("Material.Kd", vec3(0.4f, 0.6f, 0.9f));
     prog.setUniform("Material.Ks", vec3(1.0f, 1.0f, 1.0f));
