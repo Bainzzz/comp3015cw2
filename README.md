@@ -4,6 +4,11 @@
 ## Introduction 
 <p>The scene is made to resemble a Football on a grass field, consisting of a textured ball, a green plane, some fog designed to obscure the plane edges slightly (though not working fully as intended) as well as a spotlight shining above the ball (though this is also slightly buggy). The project also allows for keyboard controls that speed or slow down the camera's circling movement. </p> 
 
+The Project also relies on:
+- GLAD
+- GLM
+- GLFW
+
 <img width="798" height="603" alt="image" src="https://github.com/user-attachments/assets/357f5bc2-a7cd-44c1-b2e5-2708304fb91b" />
 
 
