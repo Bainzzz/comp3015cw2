@@ -37,3 +37,14 @@
 
 ## Evaluation
 <p> The scene I created mirrors that of a football field with a football sitting on a green plane thats meant to reflect the grass field and a skybox that shows a football pitch. The spotlight is meant to resemble that of a floodlight however this effect isn't captured as I intended, similary to the 'fog' effects. I chose this idea as it's easily recognisable and is easy to convey what is going on even if not fully developed, which was a wise choice. I believe that the project is a fair reflection of my skills within the module and builds off the lab content, I do believe I haven't achieved the aesthetic I desired however I've been able to implement many features and achieve a basic manifestation of my idea. </p>
+
+### Additional Notes 
+- the skybox was converted from a HDR file found on Poly Haven to Cube Map Converter
+    - The Skybox - (https://polyhaven.com/a/suburban_soccer_park)
+    - Site used to convert HDR (https://matheowis.github.io/HDRI-to-CubeMap/) 
+- Football model and texture was sourced from TurboSquid
+    - Football model (https://www.turbosquid.com/3d-models/soccer-ball-2296819)
+-AI usage has been declared in the AI Declaration form
+
+## Links:
+- YouTube Video: 
