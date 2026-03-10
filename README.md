@@ -47,4 +47,4 @@
 - AI usage has been declared in the AI Declaration form
 
 ## Links:
-- YouTube Video: 
+- YouTube Video: https://youtu.be/T6N6RN4ywZo
