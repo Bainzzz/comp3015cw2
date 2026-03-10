@@ -13,4 +13,6 @@
 - ESC - Exit
 
 ## The Code 
-<p> </p>
+<p> The project is built on the template provided in Lab 1, the entry point is main.cpp where a scenerunner is created and passes a SceneBasic_uniform instance. SceneRunner handles the GLFW window, OpenGL context setup and the main game loop. Each frame it calls 'update()' then 'render()' on the scene. </p>
+
+### Classes and Roles:
