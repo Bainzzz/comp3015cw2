@@ -44,7 +44,7 @@
     - Site used to convert HDR (https://matheowis.github.io/HDRI-to-CubeMap/) 
 - Football model and texture was sourced from TurboSquid
     - Football model (https://www.turbosquid.com/3d-models/soccer-ball-2296819)
--AI usage has been declared in the AI Declaration form
+- AI usage has been declared in the AI Declaration form
 
 ## Links:
 - YouTube Video: 
