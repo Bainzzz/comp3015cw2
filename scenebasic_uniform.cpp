@@ -12,7 +12,7 @@ using glm::mat3;
 #include "helper/glutils.h"
 #include "helper/texture.h"
 
-static const vec3 LIGHT_POS(0.0f, 10.0f, 2.0f);
+static const vec3 LIGHT_POS(0.0f, 10.0f, 2.0f); //
 
 SceneBasic_Uniform::SceneBasic_Uniform() :
 
