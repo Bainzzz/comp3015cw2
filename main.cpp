@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[])
 {
-	SceneRunner runner("Football Scene");
+	SceneRunner runner("CW2");
 
 	std::unique_ptr<Scene> scene;
 

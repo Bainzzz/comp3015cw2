@@ -58,7 +58,7 @@ public:
         GLUtils::dumpGLInfo();
 
         // Initialization
-        glClearColor(0.5f,0.5f,0.5f,1.0f);
+        glClearColor(0.02f,0.02f,0.02f,1.0f);
 #ifndef __APPLE__
 		if (debug) {
 			glDebugMessageCallback(GLUtils::debugCallback, nullptr);
@@ -133,6 +133,8 @@ private:
                 scene.increaseRotSpeed();
             if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
                 scene.decreaseRotSpeed();  //added for keyboard functionality 
+            if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+                scene.toggleBloom();
         }
     }
 };

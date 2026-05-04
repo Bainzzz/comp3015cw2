@@ -39,12 +39,14 @@ public:
       Called when screen is resized
       */
     virtual void resize(int, int) = 0;
+    virtual void toggleBloom() {}
 
     virtual void increaseRotSpeed() {}
     virtual void decreaseRotSpeed() {}  //increase and decrease roatation speed 
     
     void animate( bool value ) { m_animate = value; }
     bool animating() { return m_animate; }
+
     
 protected:
 	bool m_animate;

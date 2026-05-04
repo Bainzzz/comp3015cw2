@@ -193,6 +193,14 @@
     <Image Include="media\texture\suburban_soccer_park\suburban_soccer_park_posy.png" />
     <Image Include="media\texture\suburban_soccer_park\suburban_soccer_park_posz.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="shadowmap.vert" />
+    <Text Include="shadowmap.frag" />
+    <Text Include="scene.vert" />
+    <Text Include="scene.frag" />
+    <Text Include="bloom.vert" />
+    <Text Include="bloom.frag" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

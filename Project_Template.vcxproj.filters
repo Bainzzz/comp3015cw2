@@ -154,4 +154,24 @@
       <Filter>media</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="shadowmap.vert">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="shadowmap.frag">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="scene.vert">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="scene.frag">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="bloom.vert">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="bloom.frag">
+      <Filter>shaders</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
