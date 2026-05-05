@@ -65,7 +65,6 @@ in terms of limitations, though I think this deliverable is less buggy and more 
 * AI usage has been declared in the AI declaration form
 
 ## Links
-* YouTube Video: (fill)
+* YouTube Video: https://youtu.be/CI1MMVlVzRM
 * Github Repository: https://github.com/Bainzzz/comp3015cw2/new/master
 
-* 
